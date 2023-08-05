@@ -31,17 +31,41 @@ XLRE = yf.download("XLRE", start=start_date, end=end_date)
 XLK = yf.download("XLK", start=start_date, end=end_date) 
 XLU = yf.download("XLU", start=start_date, end=end_date)
 
-XLC["returns"] = ((XLC["Open"] - XLC["Adj Close"].shift(1)) / XLC["Adj Close"].shift(1)).fillna(0)
-XLY["returns"] = ((XLY["Open"] - XLY["Adj Close"].shift(1)) / XLY["Adj Close"].shift(1)).fillna(0)
-XLP["returns"] = ((XLP["Open"] - XLP["Adj Close"].shift(1)) / XLP["Adj Close"].shift(1)).fillna(0)
-XLE["returns"] = ((XLE["Open"] - XLE["Adj Close"].shift(1)) / XLE["Adj Close"].shift(1)).fillna(0)
-XLF["returns"] = ((XLF["Open"] - XLF["Adj Close"].shift(1)) / XLF["Adj Close"].shift(1)).fillna(0)
-XLV["returns"] = ((XLV["Open"] - XLV["Adj Close"].shift(1)) / XLV["Adj Close"].shift(1)).fillna(0)
-XLI["returns"] = ((XLI["Open"] - XLI["Adj Close"].shift(1)) / XLI["Adj Close"].shift(1)).fillna(0)
-XLB["returns"] = ((XLB["Open"] - XLB["Adj Close"].shift(1)) / XLB["Adj Close"].shift(1)).fillna(0)
-XLRE["returns"] = ((XLRE["Open"] - XLRE["Adj Close"].shift(1)) / XLRE["Adj Close"].shift(1)).fillna(0)
-XLK["returns"] = ((XLK["Open"] - XLK["Adj Close"].shift(1)) / XLK["Adj Close"].shift(1)).fillna(0)
-XLU["returns"] = ((XLU["Open"] - XLU["Adj Close"].shift(1)) / XLU["Adj Close"].shift(1)).fillna(0)
+XLC["Adjustment Multiplier"] = XLC["Adj Close"] / XLC["Close"]
+XLY["Adjustment Multiplier"] = XLY["Adj Close"] / XLY["Close"]
+XLP["Adjustment Multiplier"] = XLP["Adj Close"] / XLP["Close"]
+XLE["Adjustment Multiplier"] = XLE["Adj Close"] / XLE["Close"]
+XLF["Adjustment Multiplier"] = XLF["Adj Close"] / XLF["Close"]
+XLV["Adjustment Multiplier"] = XLV["Adj Close"] / XLV["Close"]
+XLI["Adjustment Multiplier"] = XLI["Adj Close"] / XLI["Close"]
+XLB["Adjustment Multiplier"] = XLB["Adj Close"] / XLB["Close"]
+XLRE["Adjustment Multiplier"] = XLRE["Adj Close"] / XLRE["Close"]
+XLK["Adjustment Multiplier"] = XLK["Adj Close"] / XLK["Close"]
+XLU["Adjustment Multiplier"] = XLU["Adj Close"] / XLU["Close"]
+
+XLC["Adj Open"] = XLC["Open"] * XLC["Adjustment Multiplier"]
+XLY["Adj Open"] = XLY["Open"] * XLY["Adjustment Multiplier"]
+XLP["Adj Open"] = XLP["Open"] * XLP["Adjustment Multiplier"]
+XLE["Adj Open"] = XLE["Open"] * XLE["Adjustment Multiplier"]
+XLF["Adj Open"] = XLF["Open"] * XLF["Adjustment Multiplier"]
+XLV["Adj Open"] = XLV["Open"] * XLV["Adjustment Multiplier"]
+XLI["Adj Open"] = XLI["Open"] * XLI["Adjustment Multiplier"]
+XLB["Adj Open"] = XLB["Open"] * XLB["Adjustment Multiplier"]
+XLRE["Adj Open"] = XLRE["Open"] * XLRE["Adjustment Multiplier"]
+XLK["Adj Open"] = XLK["Open"] * XLK["Adjustment Multiplier"]
+XLU["Adj Open"] = XLU["Open"] * XLU["Adjustment Multiplier"]
+
+XLC["returns"] = ((XLC["Adj Open"] - XLC["Adj Close"].shift(1)) / XLC["Adj Close"].shift(1)).fillna(0)
+XLY["returns"] = ((XLY["Adj Open"] - XLY["Adj Close"].shift(1)) / XLY["Adj Close"].shift(1)).fillna(0)
+XLP["returns"] = ((XLP["Adj Open"] - XLP["Adj Close"].shift(1)) / XLP["Adj Close"].shift(1)).fillna(0)
+XLE["returns"] = ((XLE["Adj Open"] - XLE["Adj Close"].shift(1)) / XLE["Adj Close"].shift(1)).fillna(0)
+XLF["returns"] = ((XLF["Adj Open"] - XLF["Adj Close"].shift(1)) / XLF["Adj Close"].shift(1)).fillna(0)
+XLV["returns"] = ((XLV["Adj Open"] - XLV["Adj Close"].shift(1)) / XLV["Adj Close"].shift(1)).fillna(0)
+XLI["returns"] = ((XLI["Adj Open"] - XLI["Adj Close"].shift(1)) / XLI["Adj Close"].shift(1)).fillna(0)
+XLB["returns"] = ((XLB["Adj Open"] - XLB["Adj Close"].shift(1)) / XLB["Adj Close"].shift(1)).fillna(0)
+XLRE["returns"] = ((XLRE["Adj Open"] - XLRE["Adj Close"].shift(1)) / XLRE["Adj Close"].shift(1)).fillna(0)
+XLK["returns"] = ((XLK["Adj Open"] - XLK["Adj Close"].shift(1)) / XLK["Adj Close"].shift(1)).fillna(0)
+XLU["returns"] = ((XLU["Adj Open"] - XLU["Adj Close"].shift(1)) / XLU["Adj Close"].shift(1)).fillna(0)
 
 Merged = pd.concat([XLC.add_prefix("Communications_"),
                     XLY.add_prefix("ConsumerDiscretionary_"),
