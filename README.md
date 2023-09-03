@@ -27,4 +27,4 @@ The workflow for this is as follows:
 
     * If you do not wish to subscribe to the service, the free plan’s data is delayed by 15 minutes, so you will have to manually enter the real market ask price.
 
-## The above methodology is outdated, please refer to "Turbo-Charging The ARIMAX Option System" for instructions on the new methodology. 
+## The above numbered methodology has been updated, please refer to "Turbo-Charging The ARIMAX Option System" for instructions on the new process. 
